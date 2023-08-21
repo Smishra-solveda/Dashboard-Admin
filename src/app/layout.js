@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <NextAuthProvider> */}
+        <NextAuthProvider>
           <GlobalState>
             <div className="flex h-screen overflow-hidden">
               <Sidebar />
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
               </div>
             </div>
           </GlobalState>
-        {/* </NextAuthProvider> */}
+        </NextAuthProvider>
       </body>
     </html>
   );
