@@ -1,0 +1,14 @@
+"use client"
+
+import { createContext, useState } from "react"
+
+export const GlobalContext = createContext(null)
+
+export default function GlobalState({ children }){
+
+    const [sideBarOpen, setSideBarOpen] = useState(false)
+
+    return <GlobalContext.Provider value={{}}>
+        {children}
+    </GlobalContext.Provider>
+}
