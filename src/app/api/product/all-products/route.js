@@ -2,31 +2,29 @@ import connectToDB from "@/database";
 import Product from "@/models/product";
 import { NextResponse } from "next/server";
 
-
 export const dynamic = "force-dynamic";
 
-export async function POST(req) {
+export async function GET(req){
     try{
         await connectToDB();
-        const extractData = await req.json();
-        const newlyCreatedProduct = await Product.create(extractData);
-        if(newlyCreatedProduct){
+        const getAllProducts= await Product.find({});
+
+        if(getAllProducts){
             return NextResponse.json({
                 success:true,
-                message:"Produt added successfully",
+                data: getAllProducts,
             });
         } else {
             return NextResponse.json({
                 success:false,
-                message:"failed to add the product",
+                message:"Failed to fetch the data",
             });
         }
-
     } catch(e) {
         console.log(e);
         return NextResponse.json({
-            success:true,
-            message:"Something went wrong",
+            success:false,
+            message:"Something went wrong !!!",
         })
     }
 }
