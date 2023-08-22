@@ -6,9 +6,8 @@ import { PiUsersFourLight } from "react-icons/pi";
 import { useContext } from "react";
 import { GlobalContext } from "@/context";
 import Link from "next/link";
-import {usePathname,useRouter} from "next/navigation"
+import { usePathname, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-
 
 const menuItems = [
   {
@@ -30,20 +29,21 @@ const menuItems = [
     icon: <PiUsersFourLight size={25} />,
   },
 ];
+
 export default function Sidebar() {
   const { sideBarOpen, setSideBarOpen } = useContext(GlobalContext);
-  const {status} = useSession();
+  const { status } = useSession();
 
   const pathName = usePathname();
   const router = useRouter();
 
-  const handlenavigate = (getMenuItem) =>{
-    if(status==='unauthenticated'){
-        router.push('/unauth-page');
-        return;
+  const handlenavigate = (getMenuItem) => {
+    if (status === "unauthenticated") {
+      router.push("/unauth-page");
+      return;
     }
     router.push(getMenuItem.path);
-  }
+  };
 
   return (
     <aside
@@ -65,8 +65,8 @@ export default function Sidebar() {
                   <label
                     onClick={() => handlenavigate(menuItem)}
                     className={`group relative cursor-pointer flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark 
-                    //          ${pathName.includes(menuItem.id) && "bg-graydark"}
-                    //         `}
+                             ${pathName.includes(menuItem.id) && "bg-graydark"}
+                            `}
                   >
                     {menuItem.icon}
                     {menuItem.label}

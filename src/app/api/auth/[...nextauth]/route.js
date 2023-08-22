@@ -4,9 +4,10 @@ import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 
 const authOptions = {
-  providers:[
+  providers: [
     GoogleProvider({
-      clientId:"828540328008-ek2q99nivdph0ee1cvhnurb86gjsmg7r.apps.googleusercontent.com",
+      clientId:
+        "828540328008-ek2q99nivdph0ee1cvhnurb86gjsmg7r.apps.googleusercontent.com",
       clientSecret: "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",
     }),
   ],
@@ -19,7 +20,7 @@ const authOptions = {
           const isUserExists = await User.findOne({ email });
 
           if (!isUserExists) {
-            const res = await fetch("http://localhost:3001/api/user", {
+            const res = await fetch("http://localhost:3000/api/user", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

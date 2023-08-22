@@ -2,7 +2,7 @@ import { deviceMapper, monthsMapper, visitorsTableHeaders } from "@/utils/config
 import Table from "../Table";
 
 async function extractAllVisitors() {
-  const res = await fetch("http://localhost:3001/api/visitors/all-visitors", {
+  const res = await fetch("http://localhost:3000/api/visitors/all-visitors", {
     method: "GET",
     cache: "no-store",
   });

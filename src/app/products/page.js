@@ -3,10 +3,8 @@ import ProductListing from "@/components/products/product-listing";
 
 export default function Products() {
   return (
-    
-      <ProductLayout>
-        <ProductListing />
-      </ProductLayout>
-    
+    <ProductLayout>
+      <ProductListing />
+    </ProductLayout>
   );
 }
