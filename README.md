@@ -7,7 +7,7 @@ First, run the development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) 
+Open at port 3000
 not on any other port otherwise backend will not work
 
 
